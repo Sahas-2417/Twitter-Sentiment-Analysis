@@ -75,20 +75,30 @@ The Logistic Regression model performed better and was selected as the final mod
 ## How to Run the Project
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/your-username/Twitter-Sentiment-Analysis.git
+git clone https://github.com/Sahas-2417/Twitter-Sentiment-Analysis.git
+```
 
+2. Navigate to the project folder:
+
+```bash
 cd Twitter-Sentiment-Analysis
+```
 
-2. Install the required dependencies:
+3. Install the required dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
-3. Run the Streamlit application 
+4. Run the Streamlit application:
 
+```bash
 streamlit run app.py
+```
 
-4. Enter any tweet or text in the input box and click on the Predict Sentiment button to get the predicted sentiment.
+5. Enter any tweet or text in the input box and click on the **Predict Sentiment** button to get the predicted sentiment.
 
 ## Project Structure
 
@@ -107,35 +117,38 @@ Twitter-Sentiment-Analysis/
     ├── Positive_Result.png
     ├── Negative_Result.png
     └── Neutral_Result.png
+```
 
-Results
+## Results
 
 The Logistic Regression model performed better than the Naive Bayes model.
 
-| Model               | Accuracy |
-| ------------------- | -------- |
-| Logistic Regression | 79.48%   |
-| Naive Bayes         | 74.07%   |
+| Model | Accuracy |
+|---|---|
+| Logistic Regression | 79.48% |
+| Naive Bayes | 74.07% |
 
-
-Conclusion
+## Conclusion
 
 This project successfully demonstrates sentiment classification using Natural Language Processing and Machine Learning. The text data was cleaned and converted into numerical features using TF-IDF Vectorization. Two machine learning models, Logistic Regression and Naive Bayes, were trained and evaluated.
 
 Logistic Regression achieved the highest accuracy of 79.48% and was selected as the final model. The model performs well on clear positive and negative text, while neutral or ambiguous text can be more challenging to classify.
 
-Future Scope
+## Future Scope
 
-Improve sentiment classification using deep learning models such as LSTM or BERT
-Add support for multilingual sentiment analysis
-Improve handling of sarcasm and mixed emotions
-Deploy the application on Streamlit Cloud
-Add more visualizations and analytics for sentiment trends
+- Improve sentiment classification using deep learning models such as LSTM or BERT
+- Add support for multilingual sentiment analysis
+- Improve handling of sarcasm and mixed emotions
+- Deploy the application on Streamlit Cloud
+- Add more visualizations and analytics for sentiment trends
 
-Author
+## Author
 
-Sahas Bochare
+**Sahas Bochare**
 
-Acknowledgement
+Artificial Intelligence Intern  
+Codec Technologies
+
+## Acknowledgement
 
 This project was developed as part of the Artificial Intelligence Internship at Codec Technologies.
