@@ -92,15 +92,21 @@ streamlit run app.py
 
 ## Project Structure
 
+```text
 Twitter-Sentiment-Analysis/
 │
 ├── app.py
+├── README.md
+├── requirements.txt
 ├── sentiment_model.pkl
 ├── tfidf_vectorizer.pkl
-├── requirements.txt
-├── README.md
-└── notebook/
-    └── Sentiment_Analysis.ipynb
+├── Notebook/
+│   └── Sentiment_Analysis.ipynb
+└── Screenshots/
+    ├── Home_Page.png
+    ├── Positive_Result.png
+    ├── Negative_Result.png
+    └── Neutral_Result.png
 
 Results
 
