@@ -146,9 +146,6 @@ Logistic Regression achieved the highest accuracy of 79.48% and was selected as 
 
 **Sahas Bochare**
 
-Artificial Intelligence Intern  
-Codec Technologies
-
 ## Acknowledgement
 
 This project was developed as part of the Artificial Intelligence Internship at Codec Technologies.
