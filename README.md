@@ -49,6 +49,20 @@ The Logistic Regression model performed better and was selected as the final mod
 - Confusion matrix visualization
 - Real-time prediction using Streamlit
 
+## Application Screenshots
+
+### Home Page
+![Home Page](Screenshots/Home_Page.png)
+
+### Positive Sentiment Prediction
+![Positive Sentiment Prediction](Screenshots/Positive_Result.png)
+
+### Negative Sentiment Prediction
+![Negative Sentiment Prediction](Screenshots/Negative_Result.png)
+
+### Neutral Sentiment Prediction
+![Neutral Sentiment Prediction](Screenshots/Neutral_Result.png)
+
 ## Sample Predictions
 
 | Input Text | Predicted Sentiment |
