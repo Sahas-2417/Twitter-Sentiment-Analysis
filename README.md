@@ -1,5 +1,9 @@
 # Twitter Sentiment Analysis using NLP and Machine Learning
 
+## Live Demo
+
+[Click here to view the live app](https://twitter-sentiment-nlp-sahas.streamlit.app/)
+
 ## Project Overview
 This project is a machine learning-based sentiment analysis system that classifies text or tweets into Positive, Negative, and Neutral sentiments. The project uses Natural Language Processing techniques for text preprocessing and TF-IDF vectorization, followed by machine learning models for classification.
 
