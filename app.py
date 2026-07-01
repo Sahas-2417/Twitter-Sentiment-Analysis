@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import re
+import pandas as pd
 
 # Load saved model and vectorizer
 with open("sentiment_model.pkl", "rb") as file:
@@ -26,26 +27,66 @@ def predict_sentiment(text):
     prediction = model.predict(vectorized_text)
     return prediction[0]
 
+
+def find_text_column(columns):
+    preferred_columns = [
+        "text",
+        "tweet",
+        "tweet_text",
+        "full_text",
+        "content",
+        "body",
+    ]
+    normalized = {column.lower().strip(): column for column in columns}
+    for name in preferred_columns:
+        if name in normalized:
+            return normalized[name]
+    return None
+
 # Streamlit UI
 st.set_page_config(page_title="Twitter Sentiment Analysis", page_icon="💬", layout="centered")
 
 st.title("Twitter Sentiment Analysis")
 st.write("This app predicts whether a given text expresses Positive, Negative, or Neutral sentiment.")
 
-user_input = st.text_area("Enter a tweet or text:")
+single_tab, batch_tab = st.tabs(["Single Text", "CSV Batch"])
 
-if st.button("Predict Sentiment"):
-    if user_input.strip() == "":
-        st.warning("Please enter some text.")
-    else:
-        sentiment = predict_sentiment(user_input)
+with single_tab:
+    user_input = st.text_area("Enter a tweet or text:")
 
-        if sentiment == "Positive":
-            st.success(f"Predicted Sentiment: {sentiment}")
-        elif sentiment == "Negative":
-            st.error(f"Predicted Sentiment: {sentiment}")
+    if st.button("Predict Sentiment"):
+        if user_input.strip() == "":
+            st.warning("Please enter some text.")
         else:
-            st.info(f"Predicted Sentiment: {sentiment}")
+            sentiment = predict_sentiment(user_input)
+
+            if sentiment == "Positive":
+                st.success(f"Predicted Sentiment: {sentiment}")
+            elif sentiment == "Negative":
+                st.error(f"Predicted Sentiment: {sentiment}")
+            else:
+                st.info(f"Predicted Sentiment: {sentiment}")
+
+with batch_tab:
+    st.write("Upload a CSV with tweet text. TweetClaw exports work when they include a text-like column.")
+    uploaded_file = st.file_uploader("CSV file", type="csv")
+
+    if uploaded_file is not None:
+        data = pd.read_csv(uploaded_file)
+        text_column = find_text_column(data.columns)
+
+        if text_column is None:
+            st.warning("Add a text, tweet, tweet_text, full_text, content, or body column.")
+        else:
+            results = data.copy()
+            results["predicted_sentiment"] = results[text_column].fillna("").map(predict_sentiment)
+            st.dataframe(results[[text_column, "predicted_sentiment"]].head(25), use_container_width=True)
+            st.download_button(
+                "Download Predictions",
+                data=results.to_csv(index=False).encode("utf-8"),
+                file_name="tweet_sentiment_predictions.csv",
+                mime="text/csv",
+            )
 
 st.markdown("---")
 st.write("Model Used: Logistic Regression with TF-IDF Vectorization")
