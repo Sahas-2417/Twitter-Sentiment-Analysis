@@ -13,7 +13,7 @@ The main objective of this project is to analyze textual data and predict the se
 ## Dataset
 The dataset used for this project is the Twitter Entity Sentiment Analysis dataset from Kaggle. It contains tweets labeled with sentiments such as Positive, Negative, Neutral, and Irrelevant. The Irrelevant class was removed to focus on three-class sentiment classification.
 
-Dataset Link: https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis
+Dataset Link: https://www.kaggle.com/datasets?search=twitter%20entity%20sentiment%20analysis
 
 ## Technologies Used
 - Python
@@ -47,11 +47,30 @@ The Logistic Regression model performed better and was selected as the final mod
 
 ## Features
 - Predicts sentiment as Positive, Negative, or Neutral
+- Batch predicts sentiment from uploaded CSV files
 - Text preprocessing and cleaning
 - TF-IDF feature extraction
 - Model comparison
 - Confusion matrix visualization
 - Real-time prediction using Streamlit
+
+## CSV Batch Prediction
+
+The Streamlit app also accepts CSV files for batch prediction. This is useful when
+you export tweet search or monitor results from tools such as TweetClaw and want
+to classify many posts in one run.
+
+Supported text columns:
+
+- `text`
+- `tweet`
+- `tweet_text`
+- `full_text`
+- `content`
+- `body`
+
+After upload, the app adds a `predicted_sentiment` column and provides a CSV
+download for the scored rows.
 
 ## Application Screenshots
 
